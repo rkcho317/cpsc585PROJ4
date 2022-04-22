@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 from utils import *
-
+from tqdm import tqdm
 
 class Trainer:
     def __init__(self, model, dataset):
@@ -34,6 +34,7 @@ class Trainer:
         grads = tape.gradient(loss, self.model.trainable_variables)
         self.optimizer.apply_gradients(zip(grads, self.model.trainable_variables))
         return loss
+
 
 def create_model():
     result = keras.Sequential()
