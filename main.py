@@ -11,12 +11,12 @@ def main():
     dataset = tf.data.Dataset\
         .from_tensor_slices(data)\
         .map(lambda x: (x[:-1], x[1:]))\
-        .shuffle(10000)\
+        .shuffle(1000)\
         .batch(32, drop_remainder=True)
 
-    trainer = Trainer(model, dataset)
+    trainer = Trainer(model, dataset, data)
 
-    trainer.run(1)
+    trainer.run(1000)
 
     # possibly slower method - Doesn't seem like it
     # model.compile(optimizer='adam', loss=loss_function)

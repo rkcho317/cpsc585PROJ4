@@ -9,6 +9,7 @@ START_TOKEN = 1
 END_TOKEN = 2
 ALPHABET_OFFSET = 3
 
+
 def encode_string(inp: str, max_len: int):
     result = np.zeros(max_len + 2, np.int32)
     for index, x in enumerate(inp):
