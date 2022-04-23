@@ -13,7 +13,7 @@ def main():
     for x in normalized_text:
         max_len = max(len(x), max_len)
 
-    encoded_text = list()
+    encoded_text = []
     for x in normalized_text:
         temp = encode_string(x, max_len)
         if temp is not None:
