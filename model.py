@@ -26,7 +26,7 @@ class Trainer:
                 total_loss += loss.numpy()
                 count += 1
                 pbar.set_postfix_str(f"Loss: {total_loss / count}")
-        print("'", generate(self.model), "'")
+        print(f"'{generate(self.model)}'")
         sleep(.01)
 
     @tf.function
@@ -73,7 +73,7 @@ def generate(model):
 
     for i in range(100):
         # prepare input
-        src = tf.expand_dims(result, 1)
+        src = tf.expand_dims(result, 0)
 
         # run model
         output = model(src)
